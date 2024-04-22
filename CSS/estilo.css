@@ -1,0 +1,342 @@
+body{
+    margin: 0;
+    background: #000;
+    color: cyan;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(.5em, 1vw, .75em);
+}
+
+a{
+    line-height: 2px;
+    text-decoration: none;
+    margin-left: 3em;
+}
+
+a:hover{
+    background-color: darkmagenta;
+}
+
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header a{
+    color: greenyellow;
+    font-family: Verdana;
+    margin-right: 40px;
+    font-size: 1em;
+    font-weight: 900;
+}
+
+.des{
+    color: #fff;
+    font-family: Arial;
+    font-size: 1em;
+}
+
+.carrusel{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrusel .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.carrusel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrusel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: greenyellow;
+    text-shadow: 0 5px 10px yellow;
+}
+
+.carrusel .list .item .autor{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.carrusel .list .item .titulo,
+.carrusel .list .item .tema{
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+
+.carrusel .list .item .tema{
+    color: #fff;
+}
+
+.carrusel .list .item .buttons{
+    display: grid;
+    grid-template-columns: repeat(2,130);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.carrusel .list .item .buttons button{
+    border: none;
+    background: darkmagenta;
+    letter-spacing: 3px;
+    font-weight: 500;
+
+}
+
+.carrusel .list .item .buttons button:nth-child(2){
+    background: transparent;
+    border: 1px solid yellow;
+    color: greenyellow;
+}
+
+.thumbnails{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnails .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 10px;
+    border: 5px solid purple;
+
+}
+
+.thumbnails .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+    box-shadow: 2px 2px 15px purple;
+}
+
+.thumbnails .item .content{
+    color: greenyellow;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnails .item .content .titulo{
+    font-weight: 900;
+    color: greenyellow;
+
+}
+
+.thumbnails .item .content .des{
+    font-weight: 300;
+}
+
+/*-------------Arrows----------------*/
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: greenyellow;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    background: darkmagenta;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.carrusel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+.carrusel .list .item:nth-child(1) .content .autor,
+.carrusel .list .item:nth-child(1) .content .titulo,
+.carrusel .list .item:nth-child(1) .content .tema,
+.carrusel .list .item:nth-child(1) .content .des,
+.carrusel .list .item:nth-child(1 ).content .buttons{
+    transform: translate(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+
+@keyframes showContent{
+    to{
+        transform: translate(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.carrusel .carrusel .list .item:nth-child(1) .content .titulo{
+    animation-delay: 1.2s!important;
+}
+
+.carrusel .carrusel .list .item:nth-child(1) .content .tema{
+    animation-delay: 1.4s!important;
+}
+
+.carrusel .carrusel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+
+.carrusel .carrusel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+
+.carrusel.next .list .carrusel .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carrusel.next .thumbnails .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnails .5s linear 1 forwards;
+}
+
+.carrusel.previous .list .item img{
+    z-index: 100;
+}
+
+@keyframes showThumbnails{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.carrusel.next .thumbnails{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+.carrusel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background: #f1693a;
+    left: 0;
+    top: 0;
+
+}
+
+.carrusel.next .time,
+.carrusel.previous .time{
+    animation: runningTime 3s linear 1 forwards;
+} 
+
+@keyframes runningTime{
+    from{
+        width: 100%;
+
+    }
+    to{
+        width: 0%;
+
+    }
+}
+
+.carrusel.previous .list .item:nth-child(2) img{
+    z-index: 2;
+}
+
+.carrusel.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.carrusel.prev .list .item:nth-child(2) .content .autor,
+.carrusel.prev .list .item:nth-child(2) .content .titulo,
+.carrusel.prev .list .item:nth-child(2) .content .tema,
+.carrusel.prev .list .item:nth-child(2) .content .des,
+.carrusel.prev .list .item:nth-child(2) .content .buttons{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .carrusel .list .item .content{
+       padding-right: 0;
+    }
+
+    .carrusel .list .item .content .titulo{
+        font-size: 30px;
+    }
+}
